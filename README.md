@@ -18,7 +18,7 @@ npm install
 ## 🚀 Usage
 
 ```bash
-node convert.js [-i <input_url>] [-o <openapi_output_file>] [-t <bruno_output_file>]
+node bruno-convert.js [-i <input_url>] [-o <openapi_output_file>] [-t <bruno_output_file>]
 ```
 
 ### Options
@@ -48,3 +48,13 @@ node convert.js -i http://localhost:3000/openapi.json -o ./openapi.json -t ./bru
 ## 📄 License
 
 MIT
+
+## 🛠️ Automate with .NET Build
+
+You can automate the script to run on each .NET build by adding the following target to your `.csproj` file:
+
+```xml
+<Target Name="RunNodeScript" AfterTargets="Build">
+  <Exec Command="node ~/code/bruno-convertor/convert-bruno.js -o ./bruno.json"/>
+</Target>
+```
